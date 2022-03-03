@@ -1,6 +1,5 @@
 import React from "react";
 import {Button, Container, Form, ListGroup} from "react-bootstrap";
-
 class TodoApp extends React.Component {
     constructor(props) {
       super(props);
@@ -8,7 +7,6 @@ class TodoApp extends React.Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
 }
-
 render() {
       return (
         <Container>
@@ -30,11 +28,9 @@ render() {
         </Container>
       );
     }
-  
     handleChange(e) {
       this.setState({ text: e.target.value });   
     }
-  
     handleSubmit(e) {
       e.preventDefault();
       if (this.state.text.length === 0) {
@@ -48,21 +44,17 @@ render() {
         items: state.items.concat(newItem),
         text: ''
       }));
-    
     }
   }
   class TodoList extends React.Component {
     render() {
-      return (
-          
+      return (  
         <ListGroup as="ol" numbered>
         {this.props.items.map(item => (
           <ListGroup.Item as="li" action variant="light" key={item.id}>{item.text}</ListGroup.Item>
         ))}
       </ListGroup>
-  
       );
     }
 }
-
 export default TodoApp;
